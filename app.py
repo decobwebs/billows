@@ -4,7 +4,8 @@ from email.mime.text import MIMEText
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_bootstrap import Bootstrap
-from flask_bootstrap4 import Bootstrap
+from flask_bootstrap5 import Bootstrap
+
 
 from flask_ckeditor import CKEditor
 
@@ -157,5 +158,5 @@ if __name__ == "__main__":
 
     app.run(debug=True, port=5001)
 
-    app.run(debug=False, port=5001)
+
 
