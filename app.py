@@ -9,6 +9,7 @@ from flask_bootstrap import Bootstrap5
 
 from flask_ckeditor import CKEditor
 
+
 from flask_gravatar import Gravatar
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
