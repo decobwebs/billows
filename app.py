@@ -3,6 +3,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap
+from flask_bootstrap4 import Bootstrap
+
 from flask_ckeditor import CKEditor
 
 from flask_gravatar import Gravatar
