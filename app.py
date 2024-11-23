@@ -5,12 +5,23 @@ from datetime import date
 from flask import Flask, abort, render_template, redirect, url_for, flash
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
-
+from flask_gravatar import Gravatar
+from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import Integer, String, Text
+from functools import wraps
+from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm import relationship
 from info import gmail, receiver, password, subject, secret_key
 from names import names
+
+
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, SelectField, EmailField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, URL
+from flask_ckeditor import CKEditorField
 
 
 app = Flask(__name__)
@@ -132,4 +143,4 @@ def rate_staff():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, port=5001)
+    app.run(debug=True, port=5001)
