@@ -3,8 +3,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
-from flask_bootstrap import Bootstrap
-from flask_bootstrap5 import Bootstrap
+
+from flask_bootstrap import Bootstrap5
 
 
 from flask_ckeditor import CKEditor
@@ -47,7 +47,7 @@ names = [
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secret_key
 ckeditor = CKEditor(app)
-Bootstrap(app)
+Bootstrap5(app)
 
 
 class ReviewForm(FlaskForm):
