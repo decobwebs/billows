@@ -1,38 +1,18 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from flask import Flask, render_template, redirect, url_for
-from flask_bootstrap import Bootstrap
-
+from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
-
-
 from flask_ckeditor import CKEditor
-
-
-from flask_gravatar import Gravatar
-from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import Integer, String, Text
-from functools import wraps
-from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalchemy.orm import relationship
-from info import gmail, receiver, password, subject, secret_key
-from names import names
-
-
-
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, SelectField, EmailField
-from wtforms.validators import DataRequired, URL
-from flask_ckeditor import CKEditorField
-
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField, EmailField
 from wtforms.validators import DataRequired
+from urllib.parse import urlencode
 
+# Admin WhatsApp number
+ADMIN_PHONE_NUMBER = "2348155114430"  # Replace with the correct number
 
+# Email credentials (unchanged from original code)
 gmail = "decobweb@gmail.com"
 receiver = "cobwebb784@gmail.com"
 password = "dqaarqodqpwgrajb"
@@ -45,12 +25,13 @@ names = [
     'Isaac Newton', 'Jane Austen'
 ]
 
+# Flask app initialization
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secret_key
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
-
+# Forms
 class ReviewForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     email = EmailField("Email", validators=[DataRequired()])
@@ -68,6 +49,22 @@ class RateStaffForm(FlaskForm):
     submit = SubmitField("Send!")
 
 
+# Generate WhatsApp URL
+def generate_whatsapp_url(data):
+    message = (
+        f"Hello, Admin!\n\n"
+        f"New Room Booking Request:\n\n"
+        f"Name: {data.get('name')}\n"
+        f"Email: {data.get('email')}\n"
+        f"Check-In Date: {data.get('check_in')}\n"
+        f"Check-Out Date: {data.get('check_out')}\n"
+        f"Guests: {data.get('guests')}\n"
+        f"Room Type: {data.get('room_type')}\n"
+    )
+    encoded_message = urlencode({"text": message})
+    return f"https://wa.me/{ADMIN_PHONE_NUMBER}?{encoded_message}"
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -76,6 +73,16 @@ def home():
 @app.route("/menu")
 def menu():
     return render_template("menu.html")
+
+
+@app.route("/room")
+def room():
+    return render_template("room.html")
+
+
+@app.route("/Special Offer")
+def special_offer():
+    return render_template("special_offer.html")
 
 
 @app.route("/outlets")
@@ -155,9 +162,36 @@ def rate_staff():
     return render_template("staffrating.html", form=form)
 
 
+@app.route("/book", methods=["POST"])
+def book():
+    # Collect form data from the booking form
+    form_data = {
+        "name": request.form.get("name"),  # Added name field
+        "email": request.form.get("email"),
+        "check_in": request.form.get("check_in"),
+        "check_out": request.form.get("check_out"),
+        "guests": request.form.get("guests"),
+        "room_type": request.form.get("room_type"),
+    }
+
+    # Generate WhatsApp message
+    message = (
+        f"Hello, Admin!\n\n"
+        f"New Room Booking Request:\n\n"
+        f"Name: {form_data['name']}\n"  # Include name in message
+        f"Email: {form_data['email']}\n"
+        f"Check-In Date: {form_data['check_in']}\n"
+        f"Check-Out Date: {form_data['check_out']}\n"
+        f"Guests: {form_data['guests']}\n"
+        f"Room Type: {form_data['room_type']}\n"
+    )
+    encoded_message = urlencode({"text": message})
+    whatsapp_url = f"https://wa.me/2348155114430?{encoded_message}"  # Replace with your WhatsApp number
+
+    # Redirect user to WhatsApp
+    return redirect(whatsapp_url)
+
+
+
 if __name__ == "__main__":
-
     app.run(debug=True, port=5001)
-
-
-

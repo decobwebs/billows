@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+
 <html lang="en" data-bs-theme="dark">
 
     <head>
         <meta charset="utf-8">
-        <title>My Park - Water Park Website Template</title>
+        <title>Billows</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -42,18 +42,22 @@
         </div><div class="container-fluid nav-bar sticky-top px-4 py-2 py-lg-0">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="display-6 text-dark"><i class="fas fa-swimmer text-primary me-3"></i>My Park</h1>
+                    <h1 class="display-6 text-dark"><i class="fas fa-swimmer text-primary me-3"></i>Billows</h1>
                     <!-- <img src="static/assets/img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto py-0">
-                        <a href="{{url_for('home')}}"class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <div class="navbar-nav mx-auto py-0" style="margin: 0; padding: 0;">
+                        <a href="{{url_for('home')}}" class="nav-item nav-link active" style="margin: 0 10px;">Home</a>
+                        <a href="about.html" class="nav-item nav-link" style="margin: 0 10px;">About</a>
+                        <a href="{{url_for('menu')}}" class="nav-item nav-link" style="margin: 0 10px;">Menu</a>
+                        <a href="{{url_for('room')}}" class="nav-item nav-link" style="margin: 0 10px;">Rooms</a>
+                        <a href="{{url_for('special_offer')}}" class="nav-item nav-link" style="margin: 0 10px;">Special Offers</a>
+                        <a href="blog.html" class="nav-item nav-link" style="margin: 0 10px;">Conference And Meetings</a>
+                        <a href="blog.html" class="nav-item nav-link" style="margin: 0 10px;">Restaurant And Bar</a>
+
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -110,8 +114,8 @@
                         <div class="row g-5 align-items-center">
                             <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
-                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To My Park</h4>
-                                    <h1 class="display-4 text-uppercase text-white mb-4">The Greatest Water and Amusement Park</h1>
+                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To Billows</h4>
+                                    <h1 class="display-4 text-uppercase text-white mb-4">The Blend of Art And Luxury</h1>
                                     <p class="mb-4 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy...
                                     </p>
 
@@ -124,6 +128,105 @@
             </div>
         </div>
         <!-- Carousel End -->
+
+
+        <!-- Add this below the Carousel End -->
+<section class="booking-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 text-uppercase fw-bold">Book Your Stay</h2>
+            <p class="fs-5">Experience the ultimate luxury and comfort at Billows. Reserve your room now!</p>
+        </div>
+        <form class="booking-form shadow p-4 rounded bg-light">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <label for="checkIn" class="form-label">Check-In Date</label>
+                    <input type="date" id="checkIn" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="checkOut" class="form-label">Check-Out Date</label>
+                    <input type="date" id="checkOut" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="guests" class="form-label">Number of Guests</label>
+                    <select id="guests" class="form-select" required>
+                        <option selected disabled>Choose...</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4+">4+ Guests</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="roomType" class="form-label">Room Type</label>
+                    <select id="roomType" class="form-select" required>
+                        <option selected disabled>Choose...</option>
+                        <option value="standard">Standard Room</option>
+                        <option value="deluxe">Deluxe Room</option>
+                        <option value="suite">Suite</option>
+                        <option value="family">Family Room</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Check Availability</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Rooms Section -->
+<section class="rooms-section py-5 bg-secondary text-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 text-uppercase fw-bold">Our Rooms</h2>
+            <p class="fs-5">Explore our luxurious accommodations tailored to meet your needs.</p>
+        </div>
+        <div class="row g-4">
+            <!-- Room Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card bg-light shadow-sm h-100">
+                    <img src="static/assets/img/room-2.jpg" class="card-img-top" alt="Standard Room">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Standard Room</h5>
+                        <p class="card-text text-dark">A cozy and comfortable room perfect for solo travelers or couples.</p>
+                        <p class="text-primary fw-bold">$100 / Night</p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Room Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card bg-light shadow-sm h-100">
+                    <img src="static/assets/img/room-2.jpg" class="card-img-top" alt="Deluxe Room">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Deluxe Room</h5>
+                        <p class="card-text text-dark">Enjoy a spacious room with premium amenities and stunning views.</p>
+                        <p class="text-primary fw-bold">$150 / Night</p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Room Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card bg-light shadow-sm h-100">
+                    <img src="static/assets/img/room-2.jpg" class="card-img-top" alt="Suite">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Suite</h5>
+                        <p class="card-text text-dark">Luxury redefined with ample space, a private lounge, and exclusive service.</p>
+                        <p class="text-primary fw-bold">$250 / Night</p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
         <div class="container-fluid blog pb-5">
@@ -266,8 +369,8 @@
                 <div class="row g-5">
                     <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s">
                         <div>
-                            <h4 class="text-primary">About My Park</h4>
-                            <h1 class="display-5 mb-4">The Best Park For Your Family</h1>
+                            <h4 class="text-primary">About Billows</h4>
+                            <h1 class="display-5 mb-4">The Best Residence For Your Family</h1>
                             <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi illum inventore maiores incidunt vero id. Est ipsam, distinctio veritatis earum inventore ab fugit officiis ut ullam, laudantium facere sapiente?
                             </p>
                             <div class="row g-4">
@@ -363,7 +466,7 @@
             <div class="container service-section py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Service</h4>
-                    <h1 class="display-5 text-white mb-4">Explore My Park service</h1>
+                    <h1 class="display-5 text-white mb-4">Explore Billows service</h1>
                     <p class="mb-0 text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
                     </p>
                 </div>
@@ -442,9 +545,9 @@
                             <h1 class="display-5 mb-4">Choose The Best Packages For Your Family</h1>
                             <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
                             </p>
-                            <p><i class="fa fa-check text-primary me-2"></i>Best Waterpark in the world</p>
+                            <p><i class="fa fa-check text-primary me-2"></i>Best Residence in the world</p>
                             <p><i class="fa fa-check text-primary me-2"></i>Best Packages For Your Family</p>
-                            <p><i class="fa fa-check text-primary me-2"></i>Enjoy Various Kinds of Water Park</p>
+                            <p><i class="fa fa-check text-primary me-2"></i>Enjoy Various Kinds of Gamesk</p>
                             <p class="mb-5"><i class="fa fa-check text-primary me-2"></i>Win Up To 3 Free All Day Tickets</p>
                             <a href="#" class="btn btn-primary rounded-pill py-3 px-5"> Book Now</a>
                         </div>
@@ -457,7 +560,7 @@
                                 <h2 class="mb-0 text-primary">$260,90<span class="text-body fs-5 fw-normal">/family</span></h2>
                             </div>
                             <div class="py-4">
-                                <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>All Access To Waterpark</p>
+                                <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>All Access To Billows</p>
                                 <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Get Two Gazebo</p>
                                 <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Free Soft Drinks</p>
                                 <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Get Four Lockers</p>
@@ -493,7 +596,7 @@
             <div class="container attractions-section py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Attractions</h4>
-                    <h1 class="display-5 text-white mb-4">Explore My Park Attractions</h1>
+                    <h1 class="display-5 text-white mb-4">Explore Billows Attractions</h1>
                     <p class="text-white mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
                     </p>
                 </div>
@@ -528,7 +631,7 @@
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Gallery</h4>
-                    <h1 class="display-5 mb-4">Captured Moments In My Park</h1>
+                    <h1 class="display-5 mb-4">Captured Moments In Billows</h1>
                     <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
                     </p>
                 </div>
@@ -593,7 +696,7 @@
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Meet Our Team</h4>
-                    <h1 class="display-5 mb-4">Our My Park Dedicated Team Member</h1>
+                    <h1 class="display-5 mb-4">Our Billows Dedicated Team Member</h1>
                     <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
                     </p>
                 </div>
@@ -761,7 +864,7 @@
                     <div class="col-md-6 col-lg-6 col-xl-4">
                         <div class="footer-item">
                             <a href="index.html" class="p-0">
-                                <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i>My Park</h4>
+                                <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i>Billows</h4>
                                 <!-- <img src="static/assets/img/logo.png" alt="Logo"> -->
                             </a>
                             <p class="mb-2">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
@@ -834,7 +937,7 @@
             <div class="container">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-6 text-center text-md-start mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>My Park</a>, All right reserved.</span>
+                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Billows</a>, All right reserved.</span>
                     </div>
                     <div class="col-md-6 text-center text-md-end text-body">
                         <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
