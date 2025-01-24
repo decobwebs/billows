@@ -130,54 +130,7 @@
         <!-- Carousel End -->
 
 
-        <!-- Add this below the Carousel End -->
-<section class="booking-section py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="display-5 text-uppercase fw-bold">Book Your Stay</h2>
-            <p class="fs-5">Experience the ultimate luxury and comfort at Billows. Reserve your room now!</p>
-        </div>
-        <form class="booking-form shadow p-4 rounded bg-light">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <label for="checkIn" class="form-label">Check-In Date</label>
-                    <input type="date" id="checkIn" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="checkOut" class="form-label">Check-Out Date</label>
-                    <input type="date" id="checkOut" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="guests" class="form-label">Number of Guests</label>
-                    <select id="guests" class="form-select" required>
-                        <option selected disabled>Choose...</option>
-                        <option value="1">1 Guest</option>
-                        <option value="2">2 Guests</option>
-                        <option value="3">3 Guests</option>
-                        <option value="4+">4+ Guests</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="roomType" class="form-label">Room Type</label>
-                    <select id="roomType" class="form-select" required>
-                        <option selected disabled>Choose...</option>
-                        <option value="standard">Standard Room</option>
-                        <option value="deluxe">Deluxe Room</option>
-                        <option value="suite">Suite</option>
-                        <option value="family">Family Room</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                </div>
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Check Availability</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
+
 
 <!-- Rooms Section -->
 <section class="rooms-section py-5 bg-secondary text-white">
@@ -195,7 +148,7 @@
                         <h5 class="card-title text-dark">Standard Room</h5>
                         <p class="card-text text-dark">A cozy and comfortable room perfect for solo travelers or couples.</p>
                         <p class="text-primary fw-bold">$100 / Night</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="{{url_for('room')}}" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -207,7 +160,7 @@
                         <h5 class="card-title text-dark">Deluxe Room</h5>
                         <p class="card-text text-dark">Enjoy a spacious room with premium amenities and stunning views.</p>
                         <p class="text-primary fw-bold">$150 / Night</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="{{url_for('room')}}" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -219,7 +172,7 @@
                         <h5 class="card-title text-dark">Suite</h5>
                         <p class="card-text text-dark">Luxury redefined with ample space, a private lounge, and exclusive service.</p>
                         <p class="text-primary fw-bold">$250 / Night</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="{{url_for('room')}}" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
