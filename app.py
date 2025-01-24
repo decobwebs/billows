@@ -8,16 +8,22 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, SelectField, EmailField
 from wtforms.validators import DataRequired
 from urllib.parse import urlencode
+import os
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
+
 
 # Admin WhatsApp number
-ADMIN_PHONE_NUMBER = "2348155114430"  # Replace with the correct number
+ADMIN_PHONE_NUMBER = os.getenv("ADMIN_PHONE_NUMBER")  # Replace with the correct number
 
 # Email credentials (unchanged from original code)
-gmail = "decobweb@gmail.com"
-receiver = "cobwebb784@gmail.com"
-password = "dqaarqodqpwgrajb"
-subject = "Guest Feedback"
-secret_key = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+gmail = os.getenv("GMAIL")
+receiver = os.getenv("RECEIVER")
+password = os.getenv("PASSWORD")
+subject = os.getenv("SUBJECT")
+secret_key = os.getenv("SECRET_KEY")
 
 names = [
     'Alice Johnson', 'Bob Smith', 'Charlie Brown', 'Diana Prince',
